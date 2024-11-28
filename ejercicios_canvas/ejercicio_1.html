@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+<body>
+    <canvas id="linea" width="400" height="400" style="border:1px solid black;"></canvas>
+<script>
+    let canvas = document.getElementById("linea");
+    let ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.lineTo(350, 350);
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+</script>
+
+</body>
+</html>

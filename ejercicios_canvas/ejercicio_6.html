@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <canvas id="elipse" width="400" height="200" style="border:1px solid black;"></canvas>
+<script>
+    let canvas = document.getElementById("elipse");
+    let ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.ellipse(200, 100, 100, 60, 0, 0, Math.PI * 2);
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+</script>
+
+</body>
+</html>

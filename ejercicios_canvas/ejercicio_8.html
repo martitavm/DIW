@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+<body>
+    <canvas id="triangulo" width="300" height="200" style="border:1px solid black;"></canvas>
+<script>
+    let canvas = document.getElementById("triangulo");
+    let ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.lineTo(200, 50);
+    ctx.lineTo(50, 150);
+    ctx.closePath();
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "green";
+    ctx.stroke();
+</script>
+
+</body>
+</html>

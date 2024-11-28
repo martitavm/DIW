@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2</title>
+</head>
+<body>
+    <canvas id="rectangulo" width="300" height="200" style="border:1px solid black;"></canvas>
+<script>
+    let canvas = document.getElementById("rectangulo");
+    let ctx = canvas.getContext("2d");
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "blue";
+    ctx.strokeRect(50, 50, 150, 100);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+<body>
+    <canvas id="circunferencia" width="400" height="400" style="border:1px solid black;"></canvas>
+<script>
+    let canvas = document.getElementById("circunferencia");
+    let ctx = canvas.getContext("2d");
+    ctx.beginPath();
+    ctx.arc(200, 200, 100, 0, Math.PI * 2);
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+</script>
+
+</body>
+</html>
