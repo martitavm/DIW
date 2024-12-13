@@ -1,0 +1,108 @@
+/* Importamos una fuente temática desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;700&family=Pacifico&display=swap');
+
+body {
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(imagenes/imagenfondo.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+
+header {
+    background-color: #fdd835;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    margin: 0;
+    color: #1e3a8a;
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5em;
+}
+
+.contentido {
+    padding: 20px;
+}
+
+h2 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    margin-bottom: 20px;
+}
+
+.video-contenedor, .audio-contenedor {
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+video, audio {
+    width: 100%;
+}
+
+.sailor-carta {
+    margin: 20px;
+    display: inline-block;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 250px;
+}
+
+.sailor-carta img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.sailor-carta h3 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+}
+
+.sailor-gif {
+    margin: auto;
+    display:flex;
+    justify-content: center;
+    gap: 10px;
+    object-fit: cover;
+}
+
+.sailor-gif img {
+max-width: 200px;    
+border-radius: 10px;
+margin-bottom: 10px;
+}
+
+.sailor-gif h3 {
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+}
+
+
+footer {
+    background-color: #fdd835;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    color: #1e3a8a;
+    font-size: 14px;
+}
+
+footer:after {
+    content: '\2728'; 
+    margin-left: 5px;
+}
