@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica Bootstrap 5 - Winx</title>
+    <!-- Enlace a Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!--Css para poner la imagen de fondo-->
+    <style>
+        body {
+            background-image: url('imagenes/fondopaginawinx.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Ejemplo de Contenedor-->
+    <div class="container p-5 my-5 bg-info text-white text-center">
+        <p class="h1">Winx Club</p>
+        <p class="h2">Bienvenidos a Alfea</p>
+    </div>
+
+    <!-- Ejemplo de Tabla e Imagenes-->
+    <div class="container my-4 text-white text-center">
+        <p class="h3">Las Winx</p>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <tr>
+                    <th>Imagen</th>
+                    <th>Nombre</th>
+                    <th>Rol</th>
+                    <th>Descripción</th>
+                </tr>
+                <tr class="table-info">
+                    <td>
+                        <img src="imagenes/bloomenchantix.png" alt="Bloom" class="img-fluid rounded">
+                    </td>
+                    <td>Bloom</td>
+                    <td>Hada del fuego</td>
+                    <td>Bloom es la líder del grupo y tiene el poder del Dragón de Fuego.</td>
+                </tr>
+                <tr>
+                <tr class="table-success">
+                    <td>
+                        <img src="imagenes/flora.png" alt="Flora" class="img-fluid rounded">
+                    </td>
+                    <td>Flora</td>
+                    <td>Hada de la naturaleza</td>
+                    <td>Flora es una amante de las plantas y utiliza la magia natural para proteger a sus amigos.
+                    </td>
+                </tr>
+                <tr class="table-warning">
+                    <td>
+                        <img src="imagenes/musa.png" alt="Musa" class="img-fluid rounded">
+                    </td>
+                    <td>Musa</td>
+                    <td>Hada de la música</td>
+                    <td>Musa tiene una conexión especial con la música, lo que potencia sus habilidades mágicas.
+                    </td>
+                </tr>
+                <tr class="table-primary">
+                    <td>
+                        <img src="imagenes/tecna.png" alt="Tecna" class="img-fluid rounded">
+                    </td>
+                    <td>Tecna</td>
+                    <td>Hada de la tecnología</td>
+                    <td>Tecna es experta en tecnología y utiliza su inteligencia para resolver problemas.</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container mt-3 text-white text-center">
+        <p class="h2">Sinopsis</p>
+        <!--Ejemplo de Jumbotron-->
+        <div class="mt-4 p-5 bg-info text-white text-center">
+            <p>La serie se basa en un grupo de hadas mágicas adolescentes que se denominan <mark>«Winx Club»</mark>. La
+                historia
+                transcurre principalmente
+                en el mundo mágico de «Magix», poblado por hadas, brujas e infinidad de criaturas fantásticas, y cuenta
+                la lucha clásica entre el bien y el mal.</p>
+        </div>
+    </div>
+    <br>
+
+    <!--Ejemplo de List Group-->
+    <div class="container mt-3">
+        <ol class="list-group list-group-numbered">
+            <li class="list-group-item">Alfea</li>
+            <li class="list-group-item">Fontana Roja</li>
+            <li class="list-group-item">Andros</li>
+        </ol>
+    </div>
+    <br>
+
+    <!--Ejemplo de Barra de progreso-->
+    <div class="progress">
+        <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" style="width:70%"></div>
+    </div>
+    <br>
+
+    <!--Ejemplo de Grid-->
+    <div class="row">
+        <div class="col-sm-4">
+            <!--Ejemplo de Spinner-->
+            <div class="container mt-3">
+                <button class="btn btn-primary">
+                    <span class="spinner-border spinner-border-sm"></span>
+                    Cargando..
+                </button>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <!--Ejemplo de Botones y Badge-->
+            <div class="btn-group btn-group-sm">
+                <button type="button" class="btn btn-success text-white"> Bloom</button>
+                <button type="button" class="btn btn-success text-white"> Musa</button>
+                <button type="button" class="btn btn-success text-white"> Flora <span class="badge bg-warning">7</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <!--Ejemplo de Paginado-->
+            <div class="container mt-3">
+                <ul class="pagination">
+                    <li class="page-item disabled"><a class="page-link" href="#">Anterior</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Siguiente</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
