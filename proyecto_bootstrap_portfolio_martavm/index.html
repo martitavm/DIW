@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Establece la fuente principal de la página */
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        /* Estilo para los enlaces de navegación */
+        .navbar-nav .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Sección Hero con fondo claro y espacio alrededor */
+        .hero {
+            background-color: #f8f9fa;
+            padding: 50px 0;
+        }
+
+        /* Estilo para la imagen circular en la sección Hero */
+        .hero img {
+            width: 155px;
+            height: 150px;
+            border-radius: 50%;
+        }
+
+        /* Estilo de los ítems del carrusel */
+        .carousel-item {
+            height: 200px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Animación de las tarjetas al pasar el ratón */
+        .card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            /* Suaviza la transición */
+        }
+
+        /* Efecto al pasar el ratón sobre la tarjeta (desplazamiento y sombra) */
+        .card:hover {
+            transform: translateY(-10px);
+            /* Eleva la tarjeta */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo de los íconos dentro de las tarjetas */
+        .icon-size {
+            color: #6c757d;
+        }
+
+        /* Margen en las distinciones de tecnologías (badge) */
+        .badge {
+            margin-right: 5px;
+            margin-top: 10px;
+        }
+
+        /* Estilo de la imagen en la parte superior de las tarjetas */
+        .card-img-top {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            /* Mantiene la proporción sin deformarse */
+        }
+
+        /* Capa de superposición en las tarjetas, invisible por defecto */
+        .card-overlay {
+            opacity: 0;
+            background: rgba(255, 255, 255, 0.5);
+            transition: opacity 0.3s ease-in-out;
+            /* Transición suave */
+        }
+
+        /* Al pasar el ratón sobre la tarjeta, la capa se vuelve visible */
+        .card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        /* Estilo de los botones en el pie de las tarjetas */
+        .card-footer .btn {
+            margin: 0 5px;
+            font-size: 1.5rem;
+        }
+
+        /* Estilo de los botones con fondo oscuro */
+        .btn-dark {
+            color: white;
+        }
+
+        /* Estilo de los íconos en los botones */
+        .icon-img {
+            width: 70px;
+            height: 70px;
+        }
+
+        /* Estilo para los botones con clase btn-md al pasar el ratón */
+        .btn-md:hover {
+            background-color: #ff66b2;
+            color: white;
+            transform: translateY(-5px);
+            /* Desplazamiento hacia arriba */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Modificación de la altura y estilo del carrusel */
+        .carousel-item {
+            height: 300px;
+            background-color: #f8f9fa;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Estilo del texto dentro del carrusel */
+        .carousel-item p {
+            margin: 0;
+        }
+
+        /* Estilo de los controles del carrusel (íconos de navegación) */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            filter: invert(95%);
+            /* Cambia los colores a más claros (blanco) */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #7f1888;">
+        <div class="container-fluid">
+
+            <!-- Nombre del portafolio -->
+            <!-- Mostramos el nombre de nuestro portafolio en la barra de navegación -->
+            <a class="navbar-brand text-white" href="#">Mi Portafolio</a>
+
+            <!-- Botón de menú en pantallas pequeñas -->
+            <!-- Agregamos un botón para colapsar el menú en dispositivos con pantallas pequeñas -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Menú de navegación -->
+            <!-- Agrupamos los enlaces de navegación y los alineamos a la derecha -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <!-- Enlaces de navegación -->
+                    <!-- Cada enlace nos lleva a una sección específica de nuestra página -->
+                    <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero y Sobre mí -->
+    <header id="sobre-mi" class="hero text-center" style="background-color:#aa24b6;">
+        <div class="container">
+
+            <!-- Imagen personal -->
+            <!-- Mostramos nuestra imagen de perfil para dar un toque más personal -->
+            <img src="https://preview.redd.it/2mhrqnmb7s941.jpg?auto=webp&s=9ce693c7015706d7d881d00fc6f08c0ed36a7119"
+                alt="Tu Foto" class="img-fluid">
+
+            <!-- Título con nombre -->
+            <!-- Presentamos nuestro nombre en un título principal -->
+            <h1 class="my-3 text-white">Hola, soy Marta Villanueva Magán</h1>
+
+            <!-- Descripción breve -->
+            <!-- Añadimos una breve descripción sobre nosotros y nuestra pasión por el desarrollo web -->
+            <p class="lead text-white">Desarrolladora web apasionada por aprender nuevas tecnologías y escribir
+                artículos sobre programación.</p>
+        </div>
+    </header>
+
+    <!-- Sección Experiencia -->
+    <section id="experiencia" class="py-5">
+        <!-- Título de la sección -->
+        <div class="container">
+            <!-- Presentamos nuestra experiencia profesional con un título centrado -->
+            <h2 class="text-center mb-4">Experiencia</h2>
+            <div class="row text-center">
+
+                <!-- Área 1: Desarrollo Web -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <div class="card-body">
+                            <!-- Icono representativo del área -->
+                            <img src="imagenes/iconoportatil.png" class="img-fluid rounded-circle mb-3"
+                                alt="Desarrollo Web">
+                            <i class="bi bi-braces icon-size mb-3" style="font-size: 50px;"></i>
+
+                            <!-- Nombre del área -->
+                            <h5 class="card-title">Desarrollo Web</h5>
+
+                            <!-- Descripción de nuestras habilidades en esta área -->
+                            <p class="card-text">Desarrollo de interfaces interactivas utilizando HTML, CSS y
+                                JavaScript.</p>
+
+                            <!-- Tecnologías utilizadas -->
+                            <span class="badge bg-primary"><a href=""
+                                    style="color: white; text-decoration: none;">HTML</a></span>
+                            <span class="badge bg-primary">CSS</span>
+                            <span class="badge bg-primary">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área 2: Backend con Django -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm p-4 h-100" style="background-color: #f8a8ff; color: white;">
+                        <div class="card-body">
+                            <!-- Icono representativo del área -->
+                            <img src="imagenes/iconoportatil.png" class="img-fluid rounded-circle mb-3"
+                                alt="Backend con Django">
+                            <i class="bi bi-database icon-size mb-3" style="font-size: 50px;"></i>
+
+                            <!-- Nombre del área -->
+                            <h5 class="card-title">Backend con Django</h5>
+
+                            <!-- Explicamos nuestro conocimiento en Django y el desarrollo de aplicaciones web seguras -->
+                            <p class="card-text">Creación de aplicaciones web robustas y seguras usando Django y Python.
+                            </p>
+
+                            <!-- Tecnologías utilizadas -->
+                            <span class="badge bg-primary">Django</span>
+                            <span class="badge bg-primary">Python</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área 3: Desarrollo Frontend con React -->
+                <div class="col-md-4 mb-4">
+                    <div class="card border-0 shadow-sm p-4 h-100">
+                        <div class="card-body">
+                            <!-- Icono representativo del área -->
+                            <img src="imagenes/iconoportatil.png" class="img-fluid rounded-circle mb-3"
+                                alt="Desarrollo Frontend con React">
+                            <i class="bi bi-code-slash icon-size mb-3" style="font-size: 50px;"></i>
+
+                            <!-- Nombre del área -->
+                            <h5 class="card-title">Desarrollo Frontend con React</h5>
+
+                            <!-- Explicamos nuestro enfoque en el desarrollo de interfaces dinámicas y modernas -->
+                            <p class="card-text">Diseño y desarrollo de aplicaciones frontend modernas con React.</p>
+
+                            <!-- Tecnologías utilizadas -->
+                            <span class="badge bg-primary">React</span>
+                            <span class="badge bg-primary">Redux</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección Proyectos -->
+    <section id="proyectos" class="py-5 bg-light">
+        <div class="container">
+            <!-- Título y descripción de la sección -->
+            <h2 style="text-align: center; font-weight: bold;">Mis proyectos recientes</h2>
+            <p style="text-align: center;">Estos son algunos proyectos que he creado recientemente...</p>
+            <br><br>
+
+            <!-- Fila de proyectos -->
+            <div class="row">
+
+                <!-- Proyecto 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 position-relative">
+                        <!-- Imagen del proyecto -->
+                        <img src="https://i.ytimg.com/vi/M8ydZMNHiyU/hq720.jpg?sqp=-oaymwE7CK4FEIIDSFryq4qpAy0IARUAAAAAGAElAADIQj0AgKJD8AEB-AH-CYAC0AWKAgwIABABGGUgWShDMA8=&rs=AOn4CLBTGZW0Fdym3D48WQ_TKWPRbkQq_A"
+                            class="card-img-top" alt="Proyecto 1">
+                        <!-- Superposición con enlaces -->
+                        <div
+                            class="card-overlay d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100">
+                            <!-- Enlace a GitHub -->
+                            <a href="https://github.com/tuusuario/proyecto1" target="_blank" class="mx-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                    alt="GitHub" class="icon-img">
+                            </a>
+                            <!-- Enlace para ver en vivo -->
+                            <a href="https://tuportafolio.com/proyecto1" target="_blank" class="mx-2">
+                                <img src="https://images.vexels.com/content/157345/preview/flat-laptop-icon-laptop-c24f96.png"
+                                    alt="Ver en Vivo" class="icon-img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 position-relative">
+                        <!-- Imagen del proyecto -->
+                        <img src="https://media.licdn.com/dms/image/v2/D4D12AQGzFVBdWk5llQ/article-cover_image-shrink_600_2000/article-cover_image-shrink_600_2000/0/1737033299321?e=2147483647&v=beta&t=xDCBzBrqr_nHrYJxeeMn2-0tzcRrssECZF6Dsd-9HY8"
+                            class="card-img-top" alt="Proyecto 2">
+                        <!-- Superposición con enlaces -->
+                        <div
+                            class="card-overlay d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100">
+                            <!-- Enlace a GitHub -->
+                            <a href="https://github.com/tuusuario/proyecto2" target="_blank" class="mx-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                    alt="GitHub" class="icon-img">
+                            </a>
+                            <!-- Enlace para ver en vivo -->
+                            <a href="https://tuportafolio.com/proyecto2" target="_blank" class="mx-2">
+                                <img src="https://images.vexels.com/content/157345/preview/flat-laptop-icon-laptop-c24f96.png"
+                                    alt="Ver en Vivo" class="icon-img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 position-relative">
+                        <!-- Imagen del proyecto -->
+                        <img src="https://miro.medium.com/v2/resize:fit:1400/1*CtgeHChz1SilKONb_fNNNQ.png"
+                            class="card-img-top" alt="Proyecto 3">
+                        <!-- Superposición con enlaces -->
+                        <div
+                            class="card-overlay d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100">
+                            <!-- Enlace a GitHub -->
+                            <a href="https://github.com/tuusuario/proyecto3" target="_blank" class="mx-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                    alt="GitHub" class="icon-img">
+                            </a>
+                            <!-- Enlace para ver en vivo -->
+                            <a href="https://tuportafolio.com/proyecto3" target="_blank" class="mx-2">
+                                <img src="https://images.vexels.com/content/157345/preview/flat-laptop-icon-laptop-c24f96.png"
+                                    alt="Ver en Vivo" class="icon-img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Segunda fila de proyectos -->
+            <div class="row">
+                <!-- Proyecto 4 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 position-relative">
+                        <!-- Imagen del proyecto -->
+                        <img src="https://www.softrending.com/images/diseno_web/ecommerce/tienda_online/tienda-online-title.png"
+                            class="card-img-top" alt="Proyecto 4">
+                        <!-- Superposición con enlaces -->
+                        <div
+                            class="card-overlay d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100">
+                            <!-- Enlace a GitHub -->
+                            <a href="https://github.com/tuusuario/proyecto4" target="_blank" class="mx-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                    alt="GitHub" class="icon-img">
+                            </a>
+                            <!-- Enlace para ver en vivo -->
+                            <a href="https://tuportafolio.com/proyecto4" target="_blank" class="mx-2">
+                                <img src="https://images.vexels.com/content/157345/preview/flat-laptop-icon-laptop-c24f96.png"
+                                    alt="Ver en Vivo" class="icon-img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 position-relative">
+                        <!-- Imagen del proyecto -->
+                        <img src="https://yi-files.yellowimages.com/products/1705000/1705868/2731838-full.jpg"
+                            class="card-img-top" alt="Proyecto 5">
+                        <!-- Superposición con enlaces -->
+                        <div
+                            class="card-overlay d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100">
+                            <!-- Enlace a GitHub -->
+                            <a href="https://github.com/tuusuario/proyecto5" target="_blank" class="mx-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                    alt="GitHub" class="icon-img">
+                            </a>
+                            <!-- Enlace para ver en vivo -->
+                            <a href="https://tuportafolio.com/proyecto5" target="_blank" class="mx-2">
+                                <img src="https://images.vexels.com/content/157345/preview/flat-laptop-icon-laptop-c24f96.png"
+                                    alt="Ver en Vivo" class="icon-img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 position-relative">
+                        <!-- Imagen del proyecto -->
+                        <img src="https://s3-alpha.figma.com/hub/file/5123373202/3b9ef354-1859-418e-b6bb-a03ab8bda8da-cover.png"
+                            class="card-img-top" alt="Proyecto 6">
+                        <!-- Superposición con enlaces -->
+                        <div
+                            class="card-overlay d-flex justify-content-center align-items-center position-absolute top-0 start-0 w-100 h-100">
+                            <!-- Enlace a GitHub -->
+                            <a href="https://github.com/tuusuario/proyecto6" target="_blank" class="mx-2">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                    alt="GitHub" class="icon-img">
+                            </a>
+                            <!-- Enlace para ver en vivo -->
+                            <a href="https://tuportafolio.com/proyecto6" target="_blank" class="mx-2">
+                                <img src="https://images.vexels.com/content/157345/preview/flat-laptop-icon-laptop-c24f96.png"
+                                    alt="Ver en Vivo" class="icon-img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botón para ver más proyectos -->
+        <div class="text-center mt-4">
+            <a href="#" class="btn btn-md" style="background-color: #f8a8ff;">Ver más proyectos ➜</a>
+        </div>
+    </section>
+
+
+    <!-- Sección Artículos -->
+    <section id="articulos" class="py-5">
+        <div class="container">
+            <!-- Título de la sección -->
+            <h2 class="text-center mb-4" style="font-weight: bold;">Artículos</h2>
+
+            <!-- Grupo de Listas de artículos -->
+            <div class="list-group">
+                <!-- Título del grupo de artículos, en este caso "Más recientes" -->
+                <div class="list-group-item" style="background-color: #f9c9fd; font-weight: bold;">
+                    <p class="mb-1">Más recientes</p>
+                </div>
+
+                <!-- Artículo 1 -->
+                <a href="https://link-a-articulo1.com" target="_blank" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <!-- Título del artículo -->
+                        <h5 class="mb-1">Cómo Aprender JavaScript Rápidamente</h5>
+                    </div>
+                    <!-- Descripción breve del artículo -->
+                    <p class="mb-1">Un artículo sobre técnicas y recursos efectivos para aprender JavaScript en poco
+                        tiempo.</p>
+                </a>
+
+                <!-- Artículo 2 -->
+                <a href="https://link-a-articulo2.com" target="_blank" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <!-- Título del artículo -->
+                        <h5 class="mb-1">Mejores Prácticas en Desarrollo Web</h5>
+                    </div>
+                    <!-- Descripción breve del artículo -->
+                    <p class="mb-1">Consejos y mejores prácticas para mejorar el desarrollo de aplicaciones web.</p>
+                </a>
+
+                <!-- Artículo 3 -->
+                <a href="https://link-a-articulo3.com" target="_blank" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <!-- Título del artículo -->
+                        <h5 class="mb-1">Introducción a React: Lo Esencial</h5>
+                    </div>
+                    <!-- Descripción breve del artículo -->
+                    <p class="mb-1">Una guía básica para comenzar a trabajar con React y crear aplicaciones
+                        interactivas.</p>
+                </a>
+
+                <!-- Artículo 4 -->
+                <a href="https://link-a-articulo4.com" target="_blank" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <!-- Título del artículo -->
+                        <h5 class="mb-1">Optimización de Rendimiento en Aplicaciones Web</h5>
+                    </div>
+                    <!-- Descripción breve del artículo -->
+                    <p class="mb-1">Cómo optimizar el rendimiento de tus aplicaciones web para una mejor experiencia de
+                        usuario.</p>
+                </a>
+            </div>
+
+            <!-- Botón para ver más artículos -->
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-md" style="background-color: #f8a8ff;">Ver más artículos ➜</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Testimonios -->
+    <section id="testimonios" class="bg-light py-5">
+        <div class="container">
+            <!-- Título de la sección -->
+            <h2 class="text-center">Testimonios</h2>
+
+            <!-- Carrusel de testimonios -->
+            <div id="carouselTestimonios" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                <div class="carousel-inner">
+                    <!-- Primer item del carrusel (activo) -->
+                    <div class="carousel-item active">
+                        <!-- Imagen del testimonio (foto de perfil) -->
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQuQgOcx0nfMpVwe1Mo8rtAsZI_CUwXwdu1Emxvw741EQdpwON9aukpAQxXJqlCs7bKz0g&usqp=CAU"
+                            alt="Tu Foto" class="rounded-circle" width="175">
+                        <div class="text-center p-4">
+                            <!-- Testimonio de la persona -->
+                            <p>"Sus proyectos devoran."</p>
+                            <!-- Nombre del testimonio -->
+                            <h5>- Anita Dinamita</h5>
+                        </div>
+                    </div>
+                    <!-- Segundo item del carrusel -->
+                    <div class="carousel-item">
+                        <!-- Imagen del testimonio -->
+                        <img src="https://play-lh.googleusercontent.com/Hv95MBgnG1eTbLV1qzuv7o2ed1UGnQIBwROsTgKGMEGeaSpB5DzkR4ygPiEmfp36Ums=w240-h480-rw"
+                            class="rounded-circle" width="180">
+                        <div class="text-center p-4">
+                            <!-- Testimonio de la persona -->
+                            <p>"Muy trabajadora y muy buena chica"</p>
+                            <!-- Nombre del testimonio -->
+                            <h5>- Ale</h5>
+                        </div>
+                    </div>
+                    <!-- Tercer item del carrusel -->
+                    <div class="carousel-item">
+                        <!-- Imagen del testimonio -->
+                        <img src="https://i.pinimg.com/564x/24/d1/0a/24d10a00df895b1c7bf3eb5499827f88.jpg" alt="Tu Foto"
+                            class="rounded-circle" width="175">
+                        <div class="text-center p-4">
+                            <!-- Testimonio de la persona -->
+                            <p>"Los proyectos siempre superan nuestras expectativas."</p>
+                            <!-- Nombre del testimonio -->
+                            <h5>- Isma Boss</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controles del carrusel (botones para navegar entre los testimonios) -->
+
+                <!-- Botón para retroceder al testimonio anterior -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonios"
+                    data-bs-slide="prev">
+                    <!-- Icono de flecha izquierda que indica el movimiento hacia atrás -->
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <!-- Texto oculto para accesibilidad (lectores de pantalla) -->
+                    <span class="visually-hidden">Previous</span>
+                </button>
+
+                <!-- Botón para avanzar al siguiente testimonio -->
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonios"
+                    data-bs-slide="next">
+                    <!-- Icono de flecha derecha que indica el movimiento hacia adelante -->
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <!-- Texto oculto para accesibilidad (lectores de pantalla) -->
+                    <span class="visually-hidden">Next</span>
+                </button>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Sección Contacto (Pie de página) -->
+    <footer id="contacto" class="text-white text-center py-4" style="background-color: #7f1888;">
+        <!-- Mensaje que invita a seguir en redes sociales -->
+        <p>Sígueme en mis redes sociales:</p>
+
+        <!-- Enlace a Twitter -->
+        <a href="https://x.com/belenestebanm?lang=es" class="text-white mx-2">
+            <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
+        </a>
+
+        <!-- Enlace a GitHub -->
+        <a href="https://github.com/angoies" class="text-white mx-2">
+            <i class="fab fa-github"></i> <!-- Icono de GitHub -->
+        </a>
+
+        <!-- Enlace a LinkedIn -->
+        <a href="https://es.linkedin.com/in/jmrivas86" class="text-white mx-2">
+            <i class="fab fa-linkedin"></i> <!-- Icono de LinkedIn -->
+        </a>
+
+        <!-- Enlace a Instagram -->
+        <a href="https://www.instagram.com/belenestebanmenendez/?hl=es" class="text-white mx-2">
+            <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
+        </a>
+
+        <!-- Enlace a Facebook -->
+        <a href="https://www.facebook.com/groups/32491207733/posts/10160720132052734/?_rdr" class="text-white mx-2">
+            <i class="fab fa-facebook"></i> <!-- Icono de Facebook -->
+        </a>
+
+        <!-- Copyright -->
+        <p class="mt-3">&copy; 2025 Marta Villanueva Magán</p>
+    </footer>
+
+
+    <!-- Cargar las dependencias de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
