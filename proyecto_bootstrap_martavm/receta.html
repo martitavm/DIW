@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos generales del cuerpo */
+        body {
+            background-color: #f4e1e8;
+            font-family: 'Verdana', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Estilos comunes para la barra de navegación y el pie de página */
+        .navbar,
+        .footer {
+            background-color: #ff77a9;
+        }
+
+        /* Estilos de la barra de navegación */
+        .navbar {
+            padding: 10px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Enlaces de la barra de navegación */
+        .navbar .navbar-nav .nav-link {
+            color: #000;
+            padding: 10px 15px;
+            transition: color 0.3s, background-color 0.3s;
+        }
+
+        /* Efecto de hover en los enlaces */
+        .navbar .navbar-nav .nav-link:hover {
+            background-color: #fd9cd0;
+            color: #fff;
+        }
+
+        /* Estilos de las categorías en la navbar */
+        .navbar-categories {
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos de los enlaces de categorías */
+        .navbar-categories a {
+            color: #000;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 15px;
+            margin: 0 12px;
+            transition: background-color 0.3s, color 0.3s;
+            /* Transición suave */
+        }
+
+        /* Efecto de hover en los enlaces de categorías */
+        .navbar-categories a:hover {
+            background-color: #fd98ce;
+            color: #fff;
+        }
+
+        /* Estilos de las tarjetas (cards) */
+        .card-deck {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            /* Columnas automáticas */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        /* Estilo de las tarjetas individuales */
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+            /* Asegura que el contenido no sobresalga */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            /* Transición para el efecto de hover */
+        }
+
+        /* Efecto de hover en las tarjetas */
+        .card:hover {
+            transform: scale(1.05);
+            /* Aumento de tamaño al pasar el ratón */
+        }
+
+
+        /* Estilo de la imagen en la tarjeta */
+        .card-img-top {
+            object-fit: cover;
+            /* Asegura que la imagen cubra el área */
+            height: 200px;
+            /* Altura fija */
+        }
+
+        /* Estilo del cuerpo de la tarjeta */
+        .card-body {
+            text-align: center;
+            background-color: #fff;
+            padding: 15px;
+        }
+
+        /* Estilo del título de la tarjeta */
+        .card-body h5 {
+            margin-bottom: 15px;
+        }
+
+        /* Estilo del botón de ver receta */
+        .btn-ver-receta {
+            background-color: #ff80bf;
+            border: 2px solid #ff80bf;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 20px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        /* Efecto hover para el botón de ver receta */
+        .btn-ver-receta:hover {
+            background-color: #ff1493;
+            border-color: #ff1493;
+        }
+
+        /* Estilo del pie de página */
+        .footer {
+            margin-top: auto;
+            padding: 20px 0;
+            background-color: #ff77a9;
+            color: #fff;
+        }
+
+        /* Estilo de los enlaces en el pie de página */
+        .footer a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+
+        /* Efecto hover para los enlaces en el pie de página */
+        .footer a:hover {
+            color: #ff1493;
+        }
+
+        /* Estilo para los enlaces de la barra de navegación en foco */
+        .navbar-nav .nav-link:focus {
+            background-color: #ff83c5;
+            color: #fff;
+        }
+
+        /* Estilo del copyright */
+        .copyright {
+            text-align: left;
+            margin: 20px;
+        }
+
+        /* Estilo del título de la receta */
+        .recipe-title {
+            color: #ff1493;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        /* Estilo de la imagen de la receta */
+        .recipe-img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Estilo de los elementos de la lista personalizados */
+        .list-group-item-custom {
+            background-color: #ffe6ee;
+            border: none;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        /* Estilo del texto rosa */
+        .text-pink {
+            color: #ff77a9 !important;
+        }
+
+        /* Estilo del contenedor del contenido */
+        .content-container {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo de los pasos de preparación */
+        .preparation-step p {
+            background-color: #ffe6ee;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 12px 0;
+            color: #000;
+            font-size: 1rem;
+        }
+
+        /* Estilo del número de paso */
+        .step-number {
+            font-weight: bold;
+            color: #ff77a9;
+            margin-right: 8px;
+        }
+
+        /* Estilo del encabezado de los pasos */
+        h4 {
+            color: #ff77a9;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+  <!-- Encabezado de la página con la barra de navegación superior -->
+  <header class="navbar navbar-expand-lg navbar-dark">
+    <div class="container d-flex justify-content-between">
+        <!-- Logo de la página, que es un ícono de pastel -->
+        <a href="#" class="text-white">🍰</a>
+        <div class="d-flex align-items-center">
+            <!-- Barra de búsqueda para encontrar recetas -->
+            <form class="form-inline d-flex me-3">
+                <input class="form-control me-2" type="search" placeholder="Buscar recetas..." aria-label="Buscar">
+                <button class="btn btn-light" type="submit">🔍</button>
+            </form>
+            <!-- Icono de usuario -->
+            <a href="#" class="text-white">👤</a>
+        </div>
+    </div>
+</header>
+
+<!-- Barra de navegación principal con las diferentes secciones -->
+<nav class="navbar navbar-expand-lg navbar-light navbar-categories">
+    <div class="container">
+        <!-- Nombre de la página con un enlace a la página principal. Se muestra como un logotipo clickable -->
+        <a class="navbar-brand" href="index.html">🍰 Marta's Bakery</a>
+
+        <!-- Botón de hamburguesa para pantallas más pequeñas (móviles). Permite expandir o contraer el menú de navegación -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span> <!-- Icono de la hamburguesa, usado en el menú móvil -->
+        </button>
+
+        <!-- Contenedor del menú de navegación. Se colapsa en pantallas pequeñas para mejorar la accesibilidad -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <!-- Contenedor de los enlaces de navegación. Aquí es donde se agrupan las secciones accesibles -->
+            <div class="navbar-nav">
+                <!-- Enlace a la página principal (Inicio) -->
+                <a class="nav-link" href="index.html">🏠 Inicio</a>
+                <!-- Enlace para redirigir al usuario a la página principal -->
+
+                <!-- Enlace a la página de categorías de recetas -->
+                <a class="nav-link" href="categorias.html">🍪 Categorías</a>
+                <!-- Este enlace muestra diferentes categorías de recetas -->
+
+                <!-- Enlace a la página de búsqueda (buscador de recetas) -->
+                <a class="nav-link" href="usuario.html">🔎 Buscador</a>
+                <!-- Permite a los usuarios buscar recetas o contenido en la página -->
+
+                <!-- Enlace a la página del usuario (perfil personal) -->
+                <a class="nav-link" href="usuario.html">👤 Usuario</a>
+                <!-- Redirige a la página donde el usuario puede gestionar su cuenta -->
+
+                <!-- Enlace a la página de sugerencias, para que los usuarios puedan enviar comentarios o ideas -->
+                <a class="nav-link" href="sugerencias.html">💌 Sugerencias</a>
+                <!-- Aquí los usuarios pueden dejar sus sugerencias para mejorar el sitio -->
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <br><br>
+
+    <div class="container my-5">
+        <div class="content-container">
+            <!-- Título de la receta -->
+            <h2 class="recipe-title text-center">Pancakes Esponjosos</h2>
+
+            <div class="row mt-4">
+                <div class="col-md-5">
+                    <!-- Imagen de la receta -->
+                    <img src="imagenes/pancakes.webp" alt="Pancakes" class="recipe-img rounded shadow-lg">
+                </div>
+                <div class="col-md-7">
+                    <!-- Sección de ingredientes -->
+                    <h4 class="text-pink">Ingredientes:</h4>
+                    <ul class="list-group mb-3">
+                        <!-- Lista de ingredientes para los pancakes -->
+                        <li class="list-group-item list-item-custom">2 tazas de harina</li>
+                        <li class="list-group-item list-item-custom">2 cucharadas de azúcar</li>
+                        <li class="list-group-item list-item-custom">1 cucharadita de sal</li>
+                        <li class="list-group-item list-item-custom">2 cucharaditas de polvo de hornear</li>
+                        <li class="list-group-item list-item-custom">2 huevos</li>
+                        <li class="list-group-item list-item-custom">1 ½ tazas de leche</li>
+                        <li class="list-group-item list-item-custom">2 cucharadas de mantequilla derretida</li>
+                        <li class="list-group-item list-item-custom">1 cucharadita de esencia de vainilla</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Sección de preparación de la receta -->
+            <h4 class="text-pink">Preparación:</h4>
+            <div class="preparation-step">
+                <!-- Pasos para preparar los pancakes -->
+                <p><span class="step-number">1.</span> Mezcla todos los ingredientes secos en un bol.</p>
+                <p><span class="step-number">2.</span> Añade los ingredientes líquidos y mezcla bien hasta obtener una
+                    masa suave.</p>
+                <p><span class="step-number">3.</span> Calienta una sartén a fuego medio y vierte la mezcla en círculos
+                    pequeños.</p>
+                <p><span class="step-number">4.</span> Cocina hasta que aparezcan burbujas en la superficie, luego
+                    voltea los pancakes.</p>
+                <p><span class="step-number">5.</span> Sirve con miel, frutas, o cualquier acompañamiento de tu
+                    elección.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pie de página con enlaces a redes sociales y políticas -->
+    <footer class="footer d-flex justify-content-between align-items-center p-3 text-white"
+        style="background-color: #ff5c8a;">
+
+        <!-- Sección de redes sociales -->
+        <div>
+            <!-- Texto introductorio para invitar a los usuarios a seguirnos en redes -->
+            <p class="mb-0">Síguenos en:</p>
+
+            <!-- Enlaces a nuestras redes sociales -->
+            <a href="#" class="text-white me-3">📷 Instagram</a>
+            <a href="#" class="text-white me-3">📘 Facebook</a>
+            <a href="#" class="text-white">🐦 Twitter</a>
+        </div>
+
+        <!-- Sección de información legal y derechos -->
+        <div class="d-flex gap-3">
+            <!-- Copyright con el nombre de nuestra marca -->
+            <p class="mb-0">©2025 Marta's Bakery</p>
+
+            <!-- Enlaces a nuestras páginas legales -->
+            <p class="mb-0"><a href="#" class="text-white text-decoration-none">Aviso legal</a></p>
+            <p class="mb-0"><a href="#" class="text-white text-decoration-none">Términos y condiciones</a></p>
+            <p class="mb-0"><a href="#" class="text-white text-decoration-none">Política de privacidad</a></p>
+        </div>
+
+    </footer>
+
+    <!-- Dependencias de bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
